@@ -322,10 +322,15 @@ plot(id106514_neighborhood_subgraph)
 
 
 #id104616 (most max_out_deg in entire network)
+degrees_out('id104616')
 id104616_neighborhood_list <- graph.neighborhood(citation_net, 1, "id104616", mode=c("out"))
 id104616_neighborhood_subgraph <- connect.neighborhood(id104616_neighborhood_list[[1]], 1, mode=c("out")) 
 plot(id104616_neighborhood_subgraph)
-
+#out-degree of 'id104616'
+which(V(citation_net)$name == 'id104616')
+# [1] 2220
+degrees_out[2220]
+# [1] 197
 
 
 
@@ -334,3 +339,28 @@ plot(id104616_neighborhood_subgraph)
 id96405_neighborhood_list <- graph.neighborhood(citation_net, 1, "id96405", mode=c("in"))
 id96405_neighborhood_subgraph <- connect.neighborhood(id96405_neighborhood_list[[1]], 1, mode=c("in")) 
 plot(id96405_neighborhood_subgraph)
+
+
+
+#in-degree of 'id96405' and in-degrees of the 
+#next two-vertices with the second-highest 
+#and third-highest in-degrees, respectively:
+
+V(citation_net)[order(degrees_in, decreasing=T) [1:3]]
+# + 3/63744 vertices, named:
+# [1] id96405  id109532 id107252
+
+which(V(citation_net)$name == 'id96405')
+# [1] 110
+degrees_in[110]
+# [1] 1295
+
+which(V(citation_net)$name == 'id109532')
+# [1] 1312
+degrees_in[1312]
+# [1] 297
+
+which(V(citation_net)$name == 'id107252')
+# [1] 949
+degrees_in[949]
+# [1] 271
