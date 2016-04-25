@@ -364,3 +364,16 @@ which(V(citation_net)$name == 'id107252')
 # [1] 949
 degrees_in[949]
 # [1] 271
+
+
+
+
+
+#Different Layout Options (if reader is interested):
+
+#plot("graph_object", layout = "choose_layout")
+#  where "choose_layout":
+#    layout.circle
+#    1layout.fruchterman.reingold
+#    layout.kamada.kawai
+#    layout.reingold.tilford
