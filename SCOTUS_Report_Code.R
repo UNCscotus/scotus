@@ -24,6 +24,9 @@ years <-dates %>%
   sapply(function(x) x[1]) %>% 
   as.integer
 
+#unique years of SCOTUS Network:
+unique(sort(years))
+
 #Isolated Vertices vs. Connected Vertices:
 
 #table of years
@@ -239,7 +242,10 @@ citation_net.cut.vertices <- articulation.points(citation_net)
 length(citation_net.cut.vertices)
 # 2350 are cut vertices (good for future study)
 
-
+#neighborhood plot around a random cut vertex: 'id92819'
+id92819_neighborhood_list <- graph.neighborhood(citation_net, 1, "id92819", mode=c("in"))
+id92819_neighborhood_subgraph <- connect.neighborhood(id92819_neighborhood_list[[1]], 1, mode=c("in")) 
+plot(id92819_neighborhood_subgraph)
 
 
 #VISUALIZING NETWORK:
