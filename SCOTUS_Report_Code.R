@@ -1,6 +1,5 @@
 #Analyze the scotus network (Supreme Court of the United States)
 #created: 04/24/16
-#by: Michael and Chisung
 
 setwd("C:/Users/michael/Desktop/Scotus_Network_2/scotus/with_node_attributes")
 
@@ -255,6 +254,11 @@ igraph.options(edge.arrow.size=0.5)
 id118365_neighborhood_list <- graph.neighborhood(citation_net, 1, "id118365", mode=c("out"))
 id118365_neighborhood_subgraph <- connect.neighborhood(id118365_neighborhood_list[[1]], 1, mode=c("out")) 
 plot(id118365_neighborhood_subgraph)
+#number of vertices 'id118365' cites:
+which(V(citation_net)$name == 'id118365')
+# [1] 45823
+degrees_out[45823]
+# [1] 9
 
 #Finally, combination of previous two graphs
 id118365_neighborhood_list <- graph.neighborhood(citation_net, 1, "id118365", mode=c("all"))
@@ -275,6 +279,11 @@ igraph.options(vertex.size=3, vertex.label=NA, edge.arrow.size=0.3)
 id2959750_neighborhood_list <- graph.neighborhood(citation_net, 1, "id2959750", mode=c("out"))
 id2959750_neighborhood_subgraph <- connect.neighborhood(id2959750_neighborhood_list[[1]], 1, mode=c("out")) 
 plot(id2959750_neighborhood_subgraph)
+#number of vertices 'id2959750' cites:
+which(V(citation_net)$name == 'id2959750')
+# [1] 41238
+degrees_out[41238]
+# [1] 64
 
 #Finally, combination of previous two graphs
 id2959750_neighborhood_list <- graph.neighborhood(citation_net, 1, "id2959750", mode=c("all"))
@@ -289,11 +298,19 @@ plot(id2959750_neighborhood_subgraph)
 id106514_neighborhood_list <- graph.neighborhood(citation_net, 1, "id106514", mode=c("in"))
 id106514_neighborhood_subgraph <- connect.neighborhood(id106514_neighborhood_list[[1]], 1, mode=c("in")) 
 plot(id106514_neighborhood_subgraph)
+#number of vertices citing 'id106514':
+which(V(citation_net)$name == 'id106514')
+# [1] 2293
+degrees_in[2293]
+# [1] 174
 
 #Second, the neighborhood of order-1 cited by id106514, the vertex with highest eigenvector centrality value
 id106514_neighborhood_list <- graph.neighborhood(citation_net, 1, "id106514", mode=c("out"))
 id106514_neighborhood_subgraph <- connect.neighborhood(id106514_neighborhood_list[[1]], 1, mode=c("out")) 
 plot(id106514_neighborhood_subgraph)
+#number of vertices 'id106514' cites:
+degrees_out[2293]
+# [1] 64
 
 #Finally, combination of previous two graphs
 id106514_neighborhood_list <- graph.neighborhood(citation_net, 1, "id106514", mode=c("all"))
